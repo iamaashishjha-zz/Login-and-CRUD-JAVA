@@ -8,12 +8,13 @@ package com.ls.dao;
 import com.ls.bll.UserLogin;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.IOException;
 
 
 public class UserDaoImpl implements UserDao {
 
     @Override
-    public boolean checkUser(UserLogin u){
+    public boolean checkUser(UserLogin u) throws IOException{
         boolean found=false;
         try{
             FileReader fr = new FileReader("UserLoginDetails.txt");

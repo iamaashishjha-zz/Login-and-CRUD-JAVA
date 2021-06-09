@@ -47,7 +47,7 @@ public class FrmLogin extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel3.setText("Password :");
 
-        btnLogin.setBackground(new java.awt.Color(51, 255, 255));
+        btnLogin.setBackground(new java.awt.Color(0, 0, 0));
         btnLogin.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         btnLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin.setText("Login");
@@ -105,11 +105,12 @@ public class FrmLogin extends javax.swing.JFrame {
                 UserDao ud = new UserDaoImpl();
                 ul.setUsername(txtUsername.getText());
                 ul.setPassword(txtPassword.getText());
+                
                 boolean found = ud.checkUser(ul);
                 if (found) {
                     this.setVisible(false);
-                    FrmMain fm = new FrmMain();
-                    fm.setVisible(true);
+                    FrmStudent fs = new FrmStudent();
+                    fs.setVisible(true);
                 } else {
                     JOptionPane.showMessageDialog(null, "Invalid Password/Username");
                 }

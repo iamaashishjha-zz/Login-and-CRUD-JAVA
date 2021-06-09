@@ -1,0 +1,5 @@
+1234,Aashish Jha,Janakpur,BBA
+123,Aakash Jha,Janakpur,BSCIT
+12,Aaryan Jha,Kathmandu,MBA
+1,Dipak Nyaupane,Kathmandu,MSCIT
+1,Dipak shrestha,Kathmandu,MSCIT
