@@ -24,6 +24,7 @@ public class UserDaoImpl implements UserDao {
             while((line=br.readLine())!=null){
                 splt = line.split(",");
                 if(splt[0].equals(u.getUsername()) && splt[1].equals(u.getPassword())){
+                    u.setRole(splt[2]);
                     found = true;
                     break;
                 }

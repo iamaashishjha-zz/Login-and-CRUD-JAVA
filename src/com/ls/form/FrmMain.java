@@ -22,6 +22,7 @@ public class FrmMain extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         btnStudentMenu = new javax.swing.JButton();
+        btnSearchStudent = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -50,6 +51,14 @@ public class FrmMain extends javax.swing.JFrame {
         btnStudentMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnStudentMenuActionPerformed(evt);
+            }
+        });
+
+        btnSearchStudent.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnSearchStudent.setText("Search Student");
+        btnSearchStudent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchStudentActionPerformed(evt);
             }
         });
 
@@ -120,13 +129,17 @@ public class FrmMain extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(55, 55, 55)
                 .addComponent(btnStudentMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(71, 71, 71)
+                .addComponent(btnSearchStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(75, 75, 75)
-                .addComponent(btnStudentMenu)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnStudentMenu)
+                    .addComponent(btnSearchStudent))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 161, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(252, 252, 252))
@@ -145,6 +158,12 @@ public class FrmMain extends javax.swing.JFrame {
         FrmStudent as = new FrmStudent();
         as.setVisible(true);
     }//GEN-LAST:event_btnStudentMenuActionPerformed
+
+    private void btnSearchStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchStudentActionPerformed
+        this.setVisible(false);
+        FrmSearchStudent fss = new FrmSearchStudent();
+        fss.setVisible(true);
+    }//GEN-LAST:event_btnSearchStudentActionPerformed
 
     /**
      * @param args the command line arguments
@@ -182,6 +201,7 @@ public class FrmMain extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSearchStudent;
     private javax.swing.JButton btnStudentMenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;

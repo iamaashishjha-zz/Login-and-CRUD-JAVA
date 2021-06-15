@@ -74,7 +74,7 @@ public class FrmLogin extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(191, 191, 191))
+                .addGap(203, 203, 203))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -87,9 +87,9 @@ public class FrmLogin extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(39, 39, 39)
                 .addComponent(btnLogin)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         pack();
@@ -97,7 +97,7 @@ public class FrmLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        try{
+        try {
             if (txtUsername.getText().equals("") || txtPassword.getText().equals("")) {
                 JOptionPane.showMessageDialog(null, "Must fill all fields");
             } else {
@@ -105,17 +105,21 @@ public class FrmLogin extends javax.swing.JFrame {
                 UserDao ud = new UserDaoImpl();
                 ul.setUsername(txtUsername.getText());
                 ul.setPassword(txtPassword.getText());
-                
                 boolean found = ud.checkUser(ul);
                 if (found) {
-                    this.setVisible(false);
-                    FrmStudent fs = new FrmStudent();
-                    fs.setVisible(true);
+                    if (ul.getRole().equals("Admin")) {
+                        this.setVisible(false);
+                        FrmMain fm = new FrmMain();
+                        fm.setVisible(true);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "try Again");
+                    }
+
                 } else {
                     JOptionPane.showMessageDialog(null, "Invalid Password/Username");
                 }
             }
-        }catch(Exception e){
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_btnLoginActionPerformed

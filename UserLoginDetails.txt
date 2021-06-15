@@ -1,4 +1,4 @@
-admin,admin
-aashish,helloworld
-deepak,bscit
-OODJ,java
+admin,admin,Admin
+aashish,helloworld,User
+deepak,bscit,Admin
+OODJ,java,User

@@ -13,5 +13,5 @@ public interface StudentDao {
     void deleteStudent(int SID) throws IOException;
     ArrayList<String>getAlLStudents() throws IOException;
     boolean checkSid(Student s) throws IOException;
-    boolean checkStudent(Student s) throws IOException;
+    boolean searchStudent(Student s) throws IOException;
 }

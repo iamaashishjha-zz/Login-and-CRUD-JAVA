@@ -113,17 +113,30 @@ public class StudentDaoImpl implements StudentDao {
     }
 
     @Override
-    public boolean checkStudent(Student s) throws IOException {
-        boolean found = false;
+    public boolean searchStudent(Student s) throws IOException {
+        boolean foundStudent = false;
+        
         try {
             FileReader fr = new FileReader("Student.txt");
             BufferedReader br = new BufferedReader(fr);
             String line = null;
             String[] splt = null;
+            
             while ((line = br.readLine()) != null) {
                 splt = line.split(",");
-                if (splt[0].equals(s.getSID())) {
-                    found = true;
+                
+                String getSID = Integer.toString(s.getSID());
+                
+                if (splt[0].equals(getSID)) {
+                    
+                    int SID = Integer.parseInt(splt[0]);
+                    s.setSID(SID);
+                    
+                    s.setsName(splt[1]);
+                    s.setsAddress(splt[2]);
+                    s.setsCourse(splt[3]);
+                    foundStudent = true;
+                    
                     break;
                 }
             }
@@ -131,7 +144,8 @@ public class StudentDaoImpl implements StudentDao {
         } catch (Exception e) {
             System.out.println(e);
         }
-        return found;
+        
+        return foundStudent;
     }
 
 }
